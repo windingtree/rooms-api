@@ -1,3 +1,0 @@
-export {
-  apiClient,
-} from './client'

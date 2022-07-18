@@ -1,0 +1,14 @@
+_docker/**/*.js
+_docker/**/*.ts
+
+_docs/**/*.js
+_docs/**/*.ts
+
+_postman/**/*.js
+_postman/**/*.ts
+
+dist/**/*.js
+dist/**/*.ts
+
+node_modules/**/*.js
+node_modules/**/*.ts

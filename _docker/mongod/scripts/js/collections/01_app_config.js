@@ -1,0 +1,77 @@
+db.createCollection('app_config');
+db.app_config.createIndex({ 'key': 1 }, { unique: true, name: 'key' });
+db.app_config.insert([
+  {
+    "key": "SENDGRID_CALLBACK_URL",
+    "value": "http://localhost:3000/login",
+    "encrypted": false
+  }, {
+    "key": "SENDGRID_API_KEY",
+    "value": "1455afaea014d6d22b14b0574c5423aae29c64ec6b049645df5b46fe3f74cb94d1e9b2628d473201145fdb0793415598a4da40cfa8cd8f7b1f155ff83805d534be1d35990a8a7e6db5",
+    "encrypted": true
+  }, {
+    "key": "WT_VERIFICATION_CODE",
+    "value": "0x08b490a10b9fcf5649083c4fcdda83d2d5146be21f8456c35b5efd2e20e94140",
+    "encrypted": false
+  }, {
+    "key": "WT_THEGRAPH_API_URL",
+    "value": "https://api.thegraph.com/subgraphs/name/windingtree/orgid-subgraph-ropsten",
+    "encrypted": false
+  }, {
+    "key": "WT_SIMARD_API_URL",
+    "value": "https://staging.api.simard.io/api/v1",
+    "encrypted": false
+  }, {
+    "key": "WT_ROOMS_PRIVATE_KEY",
+    "value": "1455afaea014d6d22b14b0574c5423a9e29c64ad26009a1cd95b0dbb3938c39e95a8f46c80447e485252d00e95001fd8a4da408ee38b8430161518f87904dc30be1d7294008a382db5",
+    "encrypted": true
+  }, {
+    "key": "WT_ROOMS_ORGID",
+    "value": "0x08b490a10b9fcf5649083c4fcdda83d2d5146be21f8456c35b5efd2e20e94140",
+    "encrypted": false
+  }, {
+    "key": "WT_SIMARD_ORGID",
+    "value": "0x56e34fe286de62c4d15d536cef2d171f0cd380e38d77d33fd4a4f0c1257b5f9f",
+    "encrypted": false
+  }, {
+    "key": "API_TEST_ENABLED",
+    "value": "true",
+    "encrypted": false
+  }, {
+    "key": "API_TEST_ONE_TIME_PASSWORD",
+    "value": "1455afaea014d6d22b14b0574c5423a8e29c64a12644db0cde5046fe3e7ec3d3dca8b462840e33014d0297518f1f1599eb914d88a9c98e36565459f27d489034f9503fd94a8f3260f3",
+    "encrypted": true
+  }, {
+    "key": "API_TEST_SESSION_TOKEN",
+    "value": "1455afaea014d6d22b14b0574c5423afe29c64ae27099b0cd95007ee7e38c89f9ce8f86e8c47320d1401910d921c4b84eed40dcfee968f7b1b5419b27e08d538fe1172950a8e7e2cf3",
+    "encrypted": true
+  }, {
+    "key": "ENABLE_LOGIN_WITHOUT_SENDGRID",
+    "value": "true",
+    "encrypted": false
+  }, {
+    "key": "ONE_MONGO_CONNECTION_PER_REQUEST",
+    "value": "true",
+    "encrypted": false
+  }, {
+    "key": "WT_ROOMS_PRIVATE_KEY_FRAGMENT",
+    "value": "webserver",
+    "encrypted": false
+  }, {
+    "key": "AWS_BUCKET_NAME",
+    "value": "local-rooms-images",
+    "encrypted": false
+  }, {
+    "key": "AWS_REGION",
+    "value": "us-west-2",
+    "encrypted": false
+  }, {
+    "key": "AWS_ACCESS_KEY_ID",
+    "value": "1455afaea014d6d22b14b0574c5423aee29c64a1265f9b0cd9500dbb7e38c89f9ceef56e81022e015302845481465985e8845c89aec6c3711b1e55fe380fd138f31c739e0acf7e6ab2",
+    "encrypted": true
+  }, {
+    "key": "AWS_SECRET_ACCESS_KEY",
+    "value": "1455afaea014d6d22b14b0574c5423ade29c64ad28458001d91107b23c3f8e929daaf82f814e3f4d111e9a0bde0c1a99e5d50d8fac978377175114be79049c74fe5d3ed94a89322db3",
+    "encrypted": true
+  }
+]);
