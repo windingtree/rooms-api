@@ -2,6 +2,7 @@ import 'dotenv/config'
 
 import express from 'express'
 import bodyParser from 'body-parser'
+import cors from 'cors'
 
 import Health from './v1/health'
 import Ping from './v1/ping'
@@ -44,26 +45,39 @@ import WTVerification from './v1/wt_verification'
 const app = express()
 app.use(bodyParser.json())
 
+const corsOptions = {
+  origin: 'http://localhost:3001',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions))
+
 const PORT = process.env.PORT || 3000
+
+app.use((req, res, next) => {
+  const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+
+  console.log(`[${req.method}] ${fullUrl}`)
+  next()
+})
 
 app.get('/api/v1/health', Health)
 app.get('/api/v1/ping', Ping)
 
-app.post('/api/v1/bookings', NewBooking)
 app.get('/api/v1/bookings', AllBookings)
-app.get('/api/v1/bookings/:booking_id', BookingById)
-app.patch('/api/v1/bookings/:booking_id', BookingById)
-app.delete('/api/v1/bookings/:booking_id', BookingById)
+app.post('/api/v1/booking', NewBooking)
+app.get('/api/v1/booking/:booking_id', BookingById)
+app.patch('/api/v1/booking/:booking_id', BookingById)
+app.delete('/api/v1/booking/:booking_id', BookingById)
 
 app.post('/api/v1/booking_price', BookingPrice)
 
-app.post('/api/v1/room_types', NewRoomType)
 app.get('/api/v1/room_types', AllRoomTypes)
-app.get('/api/v1/room_types/:room_type_id', RoomTypeById)
-app.patch('/api/v1/room_types/:room_type_id', RoomTypeById)
-app.delete('/api/v1/room_types/:room_type_id', RoomTypeById)
+app.post('/api/v1/room_type', NewRoomType)
+app.get('/api/v1/room_type/:room_type_id', RoomTypeById)
+app.patch('/api/v1/room_type/:room_type_id', RoomTypeById)
+app.delete('/api/v1/room_type/:room_type_id', RoomTypeById)
 
-app.post('/api/v1/send_one_time_pass', OneTimePassword)
+app.post('/api/v1/one_time_password', OneTimePassword)
 app.post('/api/v1/login', Login)
 
 app.get('/api/v1/hotels', Hotels)

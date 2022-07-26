@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid'
+
 import { AppConfigRepo } from '../../data/app_config/AppConfigRepo'
 
 import { CONSTANTS } from '../../common/constants'
@@ -12,6 +14,7 @@ const appConfigRepo = new AppConfigRepo()
 class AppConfig {
   private static _instance: AppConfig = new AppConfig()
   private _appConfig: IAppConfigHash|null = null
+  private _instanceId: string = '';
 
   constructor() {
     if (AppConfig._instance) {
@@ -32,13 +35,14 @@ class AppConfig {
       const appConfigs = await appConfigRepo.readAppConfigs()
 
       this._appConfig = await this.createAppConfigHash(appConfigs)
+      this._instanceId = uuidv4();
     } catch (err: unknown) {
       this._appConfig = null
 
       throw new CError(BAD_GATEWAY, 'Could not get AppConfig from the database.', err)
     }
 
-    console.log('[AppConfig :: createAppConfig] => AppConfig data loaded.')
+    console.log(`[AppConfig :: createAppConfig][${this._instanceId}] => AppConfig data loaded.`)
   }
 
   private async createAppConfigHash(appConfigs: IAppConfigCollection): Promise<IAppConfigHash> {
@@ -112,7 +116,7 @@ class AppConfig {
   public async cleanUp(): Promise<void> {
     this._appConfig = null
 
-    console.log('[AppConfig :: cleanUp] => AppConfig data cleared.')
+    console.log(`[AppConfig :: cleanUp][${this._instanceId}] => AppConfig data cleared.`)
   }
 
   public async validate(): Promise<void> {
