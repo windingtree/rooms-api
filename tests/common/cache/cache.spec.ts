@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import 'mocha'
-import { TimeBasedCache } from '../../../_lib/common/cache/timeBasedCache'
+import { TimeBasedCache } from '../../../lib/common/cache/timeBasedCache'
 
 describe('Cache', () => {
   it('should correctly add items to cache and return by key', () => {

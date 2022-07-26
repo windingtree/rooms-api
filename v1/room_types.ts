@@ -1,11 +1,11 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler, authorizeRequest } from '../_lib/interface'
+import { genericApiMethodHandler, authorizeRequest } from '../lib/interface'
 
-import { authenticateClientAppRequest } from '../_lib/app/auth/client_app'
-import { getAllRoomTypes } from '../_lib/app/room_type'
+import { authenticateClientAppRequest } from '../lib/app/auth/client_app'
+import { getAllRoomTypes } from '../lib/app/room_type'
 
-import { IProfile, IRoomTypeCollection } from '../_lib/common/types'
+import { IProfile, IRoomTypeCollection } from '../lib/common/types'
 
 async function GET(request: Request): Promise<IRoomTypeCollection> {
   const requester: IProfile = await authenticateClientAppRequest(request)

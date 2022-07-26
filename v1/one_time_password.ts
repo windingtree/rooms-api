@@ -1,11 +1,11 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler } from '../_lib/interface'
-import { postOneTimePasswordPayloadValidator } from '../_lib/interface/validators'
+import { genericApiMethodHandler } from '../lib/interface'
+import { postOneTimePasswordPayloadValidator } from '../lib/interface/validators'
 
-import { generateOneTimePassword } from '../_lib/app/auth/client_app'
+import { generateOneTimePassword } from '../lib/app/auth/client_app'
 
-import { IOneTimePasswordPayload, IOtpStatus } from '../_lib/common/types'
+import { IOneTimePasswordPayload, IOtpStatus } from '../lib/common/types'
 
 async function POST(request: Request): Promise<IOtpStatus> {
   const payload: IOneTimePasswordPayload = await postOneTimePasswordPayloadValidator(request)

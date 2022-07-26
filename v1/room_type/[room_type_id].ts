@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler, authorizeRequest, getQueryParamValue } from '../../_lib/interface'
-import { patchRoomTypePayloadValidator } from '../../_lib/interface/validators'
+import { genericApiMethodHandler, authorizeRequest, getQueryParamValue } from '../../lib/interface'
+import { patchRoomTypePayloadValidator } from '../../lib/interface/validators'
 
-import { authenticateClientAppRequest } from '../../_lib/app/auth/client_app'
-import { getRoomType, updateRoomType, deleteRoomType } from '../../_lib/app/room_type'
+import { authenticateClientAppRequest } from '../../lib/app/auth/client_app'
+import { getRoomType, updateRoomType, deleteRoomType } from '../../lib/app/room_type'
 
-import { IProfile, IRoomType, IPatchRoomTypePayload, IStatus } from '../../_lib/common/types'
+import { IProfile, IRoomType, IPatchRoomTypePayload, IStatus } from '../../lib/common/types'
 
 async function GET(request: Request): Promise<IRoomType> {
   const requester: IProfile = await authenticateClientAppRequest(request)

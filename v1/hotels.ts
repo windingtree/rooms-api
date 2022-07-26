@@ -1,11 +1,11 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler, authorizeRequest } from '../_lib/interface'
+import { genericApiMethodHandler, authorizeRequest } from '../lib/interface'
 
-import { authenticateClientAppRequest } from '../_lib/app/auth/client_app'
-import { getAllHotels } from '../_lib/app/hotel'
+import { authenticateClientAppRequest } from '../lib/app/auth/client_app'
+import { getAllHotels } from '../lib/app/hotel'
 
-import { IProfile, IHotelCollection } from '../_lib/common/types'
+import { IProfile, IHotelCollection } from '../lib/common/types'
 
 async function GET(request: Request): Promise<IHotelCollection> {
   const requester: IProfile = await authenticateClientAppRequest(request)

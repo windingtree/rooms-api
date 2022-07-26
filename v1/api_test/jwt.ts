@@ -1,11 +1,11 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler } from '../../_lib/interface'
-import { postJwtPayloadValidator } from '../../_lib/interface/validators'
+import { genericApiMethodHandler } from '../../lib/interface'
+import { postJwtPayloadValidator } from '../../lib/interface/validators'
 
-import { authenticateApiTestRequest, generateJwtToken } from '../../_lib/app/api_test'
+import { authenticateApiTestRequest, generateJwtToken } from '../../lib/app/api_test'
 
-import { IProfileAuthData, IJwtToken } from '../../_lib/common/types'
+import { IProfileAuthData, IJwtToken } from '../../lib/common/types'
 
 async function POST(request: Request): Promise<IJwtToken> {
   await authenticateApiTestRequest(request)

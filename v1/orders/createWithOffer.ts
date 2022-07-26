@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler } from '../../_lib/interface'
-import { postCreateOrderPayloadValidator } from '../../_lib/interface/validators'
+import { genericApiMethodHandler } from '../../lib/interface'
+import { postCreateOrderPayloadValidator } from '../../lib/interface/validators'
 
-import { authenticateOrgIdRequest } from '../../_lib/app/auth/orgid'
-import { createOrder } from '../../_lib/app/orgid'
+import { authenticateOrgIdRequest } from '../../lib/app/auth/orgid'
+import { createOrder } from '../../lib/app/orgid'
 
-import { IOrgDetails, IPostCreateOrderPayload, ICreateOrderResult } from '../../_lib/common/types'
+import { IOrgDetails, IPostCreateOrderPayload, ICreateOrderResult } from '../../lib/common/types'
 
 async function POST(request: Request): Promise<ICreateOrderResult> {
   const requester: IOrgDetails = await authenticateOrgIdRequest(request)

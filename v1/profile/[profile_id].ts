@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler, authorizeRequest, getQueryParamValue } from '../../_lib/interface'
-import { patchProfilePayloadValidator } from '../../_lib/interface/validators'
+import { genericApiMethodHandler, authorizeRequest, getQueryParamValue } from '../../lib/interface'
+import { patchProfilePayloadValidator } from '../../lib/interface/validators'
 
-import { authenticateClientAppRequest } from '../../_lib/app/auth/client_app'
-import { getProfile, updateProfile, deleteProfile } from '../../_lib/app/profile'
+import { authenticateClientAppRequest } from '../../lib/app/auth/client_app'
+import { getProfile, updateProfile, deleteProfile } from '../../lib/app/profile'
 
-import { IProfile, IPatchProfilePayload, IStatus } from '../../_lib/common/types'
+import { IProfile, IPatchProfilePayload, IStatus } from '../../lib/common/types'
 
 async function GET(request: Request): Promise<IProfile> {
   const requester: IProfile = await authenticateClientAppRequest(request)

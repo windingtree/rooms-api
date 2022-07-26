@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler, authorizeRequest } from '../_lib/interface'
-import { postProfilePayloadValidator } from '../_lib/interface/validators'
+import { genericApiMethodHandler, authorizeRequest } from '../lib/interface'
+import { postProfilePayloadValidator } from '../lib/interface/validators'
 
-import { authenticateClientAppRequest } from '../_lib/app/auth/client_app'
-import { createProfile } from '../_lib/app/profile'
+import { authenticateClientAppRequest } from '../lib/app/auth/client_app'
+import { createProfile } from '../lib/app/profile'
 
-import { IProfile, IPostProfilePayload } from '../_lib/common/types'
+import { IProfile, IPostProfilePayload } from '../lib/common/types'
 
 async function POST(request: Request): Promise<IProfile> {
   const requester: IProfile = await authenticateClientAppRequest(request)

@@ -1,11 +1,11 @@
-_docker/**/*.js
-_docker/**/*.ts
+docker/**/*.js
+docker/**/*.ts
 
 docs/**/*.js
 docs/**/*.ts
 
-_postman/**/*.js
-_postman/**/*.ts
+postman/**/*.js
+postman/**/*.ts
 
 build/**/*.js
 build/**/*.ts

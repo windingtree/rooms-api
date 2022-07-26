@@ -4,12 +4,12 @@ import chaiAsPromised from 'chai-as-promised'
 import { v4 as uuidv4 } from 'uuid'
 import { Request } from 'express'
 
-import { createRequestObject } from '../../../_tests/_tools'
-import { IRequestBody } from '../../../_tests/_types'
+import { createRequestObject } from '../../../tests/_tools'
+import { IRequestBody } from '../../../tests/_types'
 
-import { CError } from '../../../_lib/common/tools'
-import { postRoomTypePayloadValidator as sut } from '../../../_lib/interface/validators/RoomType'
-import { CONSTANTS } from '../../../_lib/common/constants'
+import { CError } from '../../../lib/common/tools'
+import { postRoomTypePayloadValidator as sut } from '../../../lib/interface/validators/RoomType'
+import { CONSTANTS } from '../../../lib/common/constants'
 
 const { BAD_REQUEST } = CONSTANTS.HTTP_STATUS
 

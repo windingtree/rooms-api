@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler } from '../_lib/interface'
+import { genericApiMethodHandler } from '../lib/interface'
 
-import { getHealth } from '../_lib/app/health'
+import { getHealth } from '../lib/app/health'
 
-import { IHealthStatus } from '../_lib/common/types'
+import { IHealthStatus } from '../lib/common/types'
 
 async function GET(): Promise<IHealthStatus> {
   return await getHealth()

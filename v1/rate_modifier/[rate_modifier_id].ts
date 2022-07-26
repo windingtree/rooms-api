@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler, authorizeRequest, getQueryParamValue } from '../../_lib/interface'
-import { patchRateModifierPayloadValidator } from '../../_lib/interface/validators'
+import { genericApiMethodHandler, authorizeRequest, getQueryParamValue } from '../../lib/interface'
+import { patchRateModifierPayloadValidator } from '../../lib/interface/validators'
 
-import { authenticateClientAppRequest } from '../../_lib/app/auth/client_app'
-import { getRateModifier, updateRateModifier, deleteRateModifier } from '../../_lib/app/rate_modifier'
+import { authenticateClientAppRequest } from '../../lib/app/auth/client_app'
+import { getRateModifier, updateRateModifier, deleteRateModifier } from '../../lib/app/rate_modifier'
 
-import { IProfile, IRateModifier, IPatchRateModifierPayload, IStatus } from '../../_lib/common/types'
+import { IProfile, IRateModifier, IPatchRateModifierPayload, IStatus } from '../../lib/common/types'
 
 async function GET(request: Request): Promise<IRateModifier> {
   const requester: IProfile = await authenticateClientAppRequest(request)

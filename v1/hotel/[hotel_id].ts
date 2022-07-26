@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler, authorizeRequest, getQueryParamValue } from '../../_lib/interface'
-import { patchHotelPayloadValidator } from '../../_lib/interface/validators'
+import { genericApiMethodHandler, authorizeRequest, getQueryParamValue } from '../../lib/interface'
+import { patchHotelPayloadValidator } from '../../lib/interface/validators'
 
-import { authenticateClientAppRequest } from '../../_lib/app/auth/client_app'
-import { getHotel, updateHotel, deleteHotel } from '../../_lib/app/hotel'
+import { authenticateClientAppRequest } from '../../lib/app/auth/client_app'
+import { getHotel, updateHotel, deleteHotel } from '../../lib/app/hotel'
 
-import { IProfile, IHotel, IPatchHotelPayload, IStatus } from '../../_lib/common/types'
+import { IProfile, IHotel, IPatchHotelPayload, IStatus } from '../../lib/common/types'
 
 async function GET(request: Request): Promise<IHotel> {
   const requester: IProfile = await authenticateClientAppRequest(request)
