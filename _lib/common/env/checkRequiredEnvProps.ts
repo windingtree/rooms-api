@@ -7,8 +7,8 @@ const { INTERNAL_SERVER_ERROR } = CONSTANTS.HTTP_STATUS
 
 async function checkRequiredEnvProps(): Promise<void> {
   const requiredEnvProps: Array<keyof IEnvVariables> = [
-    'VERCEL_GITHUB_COMMIT_REF',
-    'VERCEL_GITHUB_COMMIT_SHA',
+    'GITHUB_COMMIT_REF',
+    'GITHUB_COMMIT_SHA',
 
     'ENV_ENCRYPTION_DETAILS',
 

@@ -1,6 +1,6 @@
 interface IEnvVariables {
-  VERCEL_GITHUB_COMMIT_REF: string
-  VERCEL_GITHUB_COMMIT_SHA: string
+  GITHUB_COMMIT_REF: string
+  GITHUB_COMMIT_SHA: string
 
   ENV_ENCRYPTION_DETAILS: string
 
