@@ -81,6 +81,7 @@ async function genericApiMethodHandler(
       await onExitCleanUp()
     } catch (_err) {
       // Do nothing. We are already in a try/catch block.
+      console.log('we should not get here :-(')
     }
 
     errorHandler(response, err)

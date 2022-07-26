@@ -51,7 +51,7 @@ db.app_config.insert([
     "encrypted": false
   }, {
     "key": "ONE_MONGO_CONNECTION_PER_REQUEST",
-    "value": "true",
+    "value": "false",
     "encrypted": false
   }, {
     "key": "WT_ROOMS_PRIVATE_KEY_FRAGMENT",
