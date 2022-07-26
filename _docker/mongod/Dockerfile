@@ -1,16 +1,31 @@
-from debian:buster-slim
+from debian:11.3-slim
 
-# We need to fake the existence of systemctl
-RUN ln -s /bin/true /usr/bin/systemctl
+ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
+ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBCONF_NONINTERACTIVE_SEEN=true
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y gnupg2 wget tzdata
-RUN wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add -
-RUN echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/4.4 main" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list
 RUN apt-get update
-RUN apt-get install -y mongodb-org=4.4.2 mongodb-org-server=4.4.2 mongodb-org-shell=4.4.2 mongodb-org-mongos=4.4.2 mongodb-org-tools=4.4.2
+RUN apt-get install -y apt-utils
+RUN apt-get upgrade -y
 
-# Cleanup
-RUN rm -rf /usr/bin/systemctl
+RUN rm -rf /tmp/preseed.cfg
+RUN touch /tmp/preseed.cfg
+
+RUN echo "tzdata tzdata/Areas select Europe" >> /tmp/preseed.cfg
+RUN echo "tzdata tzdata/Zones/Europe select Kiev" >> /tmp/preseed.cfg
+RUN debconf-set-selections /tmp/preseed.cfg
+RUN rm -f /etc/timezone /etc/localtime
+RUN apt-get install -y tzdata
+RUN dpkg-reconfigure -f non-interactive tzdata
+
+RUN apt-get install -y gnupg2 wget
+
+RUN wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | apt-key add -
+RUN echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main" | tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+RUN apt-get update
+RUN apt-get install -y mongodb-org=5.0.9 mongodb-org-server=5.0.9 mongodb-org-shell=5.0.9 mongodb-org-mongos=5.0.9 mongodb-org-tools=5.0.9
+
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN mkdir -p /home/mongodb
 RUN chown -R mongodb:mongodb /home/mongodb
