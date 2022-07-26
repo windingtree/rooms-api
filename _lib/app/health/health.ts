@@ -34,7 +34,7 @@ async function getHealth(): Promise<IHealthStatus> {
 
   return {
     mongo: mongoStatusObj,
-    app_version: `${ENV.VERCEL_GITHUB_COMMIT_REF}:${ENV.VERCEL_GITHUB_COMMIT_SHA}`,
+    app_version: `${ENV.GITHUB_COMMIT_REF}:${ENV.GITHUB_COMMIT_SHA}`,
   }
 }
 
