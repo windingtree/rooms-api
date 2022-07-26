@@ -15,7 +15,7 @@ function jwtParse(token: string): Promise<void> {
     reject = _reject
   })
 
-  jwt.verify(token, 'test', (err, decoded) => {
+  jwt.verify(token, 'test', (err /*, decoded */) => {
     if (err && err.message === 'jwt malformed') {
       reject(err)
       return

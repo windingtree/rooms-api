@@ -14,7 +14,7 @@ const appConfigRepo = new AppConfigRepo()
 class AppConfig {
   private static _instance: AppConfig = new AppConfig()
   private _appConfig: IAppConfigHash|null = null
-  private _instanceId: string = '';
+  private _instanceId = '';
 
   constructor() {
     if (AppConfig._instance) {
