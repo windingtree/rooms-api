@@ -1,37 +1,64 @@
 # Rooms API
 
-This is the API source code. It is written in TypeScript. It is a stand alone package, so please run `npm install` in this directory before all else.
+This repository contains the source code for the Rooms API. It is written in TypeScript, uses [Express](https://expressjs.com/), and [MongoDB](https://www.mongodb.com/). The UI for Rooms project is available at [windingtree/rooms-ui](https://github.com/windingtree/rooms-ui).
 
-## Available commands
+## Prerequisites
 
-To build API source code (generates JS output in `./dist` folder):
+Please run `npm install` in the project root directory. Also, please see the documentation in [_docker/README.md](./_docker/README.md), which describes how to run MongoDB locally as a Docker container (with proper seeding).
 
-```sh
+## Building for production use
+
+To build API source code:
+
+```shell
 npm run build
-
-# or
-npm run build:watch # so that you can spot errors in real time, as you develop
 ```
+
+This generates JS code in `build` folder.
+
+## Local dev
+
+To develop, it is recommended to use the following approach.
+
+First, we continuously generate the JS source code using `tsc` watch mode:
+
+```shell
+npm run build:watch
+```
+
+Then, in a separate terminal, run the server in watch mode (utilizing [nodemon](https://www.npmjs.com/package/nodemon) under the hood):
+
+```shell
+npm run start
+```
+
+## Tests
 
 To run unit tests:
 
-```sh
+```shell
 npm run test
 ```
 
+## Linting
+
 To lint API source code against project defined ESLint rules:
 
-```sh
+```shell
 npm run lint
-
-# or
-npm run lint:fix # make ESLint fix errors which can be automatically fixed
 ```
 
-## Running MongoDB locally
+To make ESLint try and automatically fix errors/warnings:
 
-There are setup scripts available to run MongoDB locally as a Docker container. For more details, see [README](./_docker/README.md)  in `./_docker` folder.
+```shell
+npm run lint:fix
+```
 
 ## Code documentation
 
-You can find more details about the structure of the code base, and a discussion of some architectural decisions in [_docs/README](./_docs/README.md) file.
+You can find more details about the structure of the code base, and a discussion of some architectural decisions in [docs/README](./docs/README.md) file.
+
+
+## License
+
+This project is licensed under the MIT license. See [LICENSE](./LICENSE) for more details.

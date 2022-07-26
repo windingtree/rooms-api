@@ -5,20 +5,19 @@
 You can see that the code is structured in several top level directories:
 
 ```
-api
-api/_docker
-api/_docs
-api/_lib
-api/_postman
-api/_tests
-api/v1
+_docker
+docs
+_lib
+_postman
+_tests
+v1
 ```
 
 The main idea behind each directory is as follows:
 
 - all API request handlers go in the folder `api/v1`; in the future, if there will be a next version of the API, it can be placed in the folder `api/v2`; future revisions can follow the same approach
 - all functions, classes, type definitions, etc. that are used by request handlers, go in folder `api/_lib`
-- any relevant API code documentation can be found in `api/_docs`; you are reading it right now ;)
+- any relevant API code documentation can be found in `api/docs`; you are reading it right now ;)
 - unit tests are located in `api/_tests`
 - Postman tests (integration testing of a working API with a working MongoDB) are located in `api/_postman`
 - helper scripts to raise local infrastructure (MongoDB, etc.) are located in `api/_docker`

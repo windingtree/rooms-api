@@ -35,6 +35,7 @@ async function getHealth(): Promise<IHealthStatus> {
   return {
     mongo: mongoStatusObj,
     app_version: `${ENV.GITHUB_COMMIT_REF}:${ENV.GITHUB_COMMIT_SHA}`,
+    test: 42,
   }
 }
 

@@ -1,8 +1,8 @@
-import { ObjectID } from 'mongodb'
+import { ObjectId } from 'mongodb'
 
 import { isFunction } from '../../common/tools'
 
-function getObjectIdString(objectId: ObjectID|string|undefined|null): string {
+function getObjectIdString(objectId: ObjectId|string|undefined|null): string {
   if (typeof objectId === 'string') {
     return objectId
   } else if (
