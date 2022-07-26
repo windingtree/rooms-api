@@ -1,14 +1,14 @@
-import { ObjectID } from 'mongodb'
+import { ObjectId } from 'mongodb'
 import * as moment from 'moment'
 
 import { getObjectId, getObjectIdString } from '../../common/tools'
 
 class BaseMongoDataMapper {
-  fromObjectId(objectId: ObjectID|null): string {
+  fromObjectId(objectId: ObjectId|null): string {
     return getObjectIdString(objectId)
   }
 
-  toObjectId(id: string): ObjectID|null {
+  toObjectId(id: string): ObjectId|null {
     return getObjectId(id)
   }
 

@@ -11,6 +11,7 @@ interface IHealthStatusMongo {
 interface IHealthStatus {
   mongo: IHealthStatusMongo
   app_version: string
+  test: number
 }
 
 interface IOtpStatus {

@@ -1,20 +1,20 @@
-import { ObjectID } from 'mongodb'
+import { ObjectId } from 'mongodb'
 
 import { CONSTANTS } from '../../common/constants'
 import { CError } from '../../common/tools'
 
 const { INTERNAL_SERVER_ERROR } = CONSTANTS.HTTP_STATUS
 
-function getObjectId(id: string|undefined|null): ObjectID|null {
+function getObjectId(id: string|undefined|null): ObjectId|null {
   if (typeof id === 'undefined' || id === null || id === '') {
     return null
   }
 
-  let objectId: ObjectID
+  let objectId: ObjectId
   try {
-    objectId = new ObjectID(id)
+    objectId = new ObjectId(id)
   } catch (err: unknown) {
-    throw new CError(INTERNAL_SERVER_ERROR, 'Tried to convert an illegal value to ObjectID.', err)
+    throw new CError(INTERNAL_SERVER_ERROR, 'Tried to convert an illegal value to ObjectId.', err)
   }
 
   return objectId
