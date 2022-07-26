@@ -4,7 +4,7 @@ This repository contains the source code for the Rooms API. It is written in Typ
 
 ## Prerequisites
 
-Please run `npm install` in the project root directory. Also, please see the documentation in [_docker/README.md](./_docker/README.md), which describes how to run MongoDB locally as a Docker container (with proper seeding).
+Please run `npm install` in the project root directory. Also, please see the documentation in [docker/README.md](./docker/README.md), which describes how to run MongoDB locally as a Docker container (with proper seeding).
 
 ## Building for production use
 

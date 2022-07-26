@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler, authorizeRequest } from '../_lib/interface'
-import { postRateModifierPayloadValidator } from '../_lib/interface/validators'
+import { genericApiMethodHandler, authorizeRequest } from '../lib/interface'
+import { postRateModifierPayloadValidator } from '../lib/interface/validators'
 
-import { authenticateClientAppRequest } from '../_lib/app/auth/client_app'
-import { createRateModifier } from '../_lib/app/rate_modifier'
+import { authenticateClientAppRequest } from '../lib/app/auth/client_app'
+import { createRateModifier } from '../lib/app/rate_modifier'
 
-import { IProfile, IRateModifier, IPostRateModifierPayload } from '../_lib/common/types'
+import { IProfile, IRateModifier, IPostRateModifierPayload } from '../lib/common/types'
 
 async function POST(request: Request): Promise<IRateModifier> {
     const requester: IProfile = await authenticateClientAppRequest(request)

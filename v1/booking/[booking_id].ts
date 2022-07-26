@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler, authorizeRequest, getQueryParamValue } from '../../_lib/interface'
-import { patchBookingPayloadValidator } from '../../_lib/interface/validators'
+import { genericApiMethodHandler, authorizeRequest, getQueryParamValue } from '../../lib/interface'
+import { patchBookingPayloadValidator } from '../../lib/interface/validators'
 
-import { authenticateClientAppRequest } from '../../_lib/app/auth/client_app'
-import { getBooking, updateBooking, deleteBooking } from '../../_lib/app/booking'
+import { authenticateClientAppRequest } from '../../lib/app/auth/client_app'
+import { getBooking, updateBooking, deleteBooking } from '../../lib/app/booking'
 
-import { IProfile, IBooking, IPatchBookingPayload, IStatus } from '../../_lib/common/types'
+import { IProfile, IBooking, IPatchBookingPayload, IStatus } from '../../lib/common/types'
 
 async function GET(request: Request): Promise<IBooking> {
   const requester: IProfile = await authenticateClientAppRequest(request)

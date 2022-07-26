@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler } from '../../_lib/interface'
+import { genericApiMethodHandler } from '../../lib/interface'
 
-import { authenticateApiTestRequest, apiTestSetup } from '../../_lib/app/api_test'
+import { authenticateApiTestRequest, apiTestSetup } from '../../lib/app/api_test'
 
-import { IProfile } from '../../_lib/common/types'
+import { IProfile } from '../../lib/common/types'
 
 async function POST(request: Request): Promise<IProfile> {
   await authenticateApiTestRequest(request)

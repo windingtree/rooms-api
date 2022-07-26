@@ -1,11 +1,11 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler, authorizeRequest, getQueryParamValue } from '../../_lib/interface'
+import { genericApiMethodHandler, authorizeRequest, getQueryParamValue } from '../../lib/interface'
 
-import { authenticateClientAppRequest } from '../../_lib/app/auth/client_app'
-import { getOrgDetails } from '../../_lib/app/orgid'
+import { authenticateClientAppRequest } from '../../lib/app/auth/client_app'
+import { getOrgDetails } from '../../lib/app/orgid'
 
-import { IOrgDetails, IProfile } from '../../_lib/common/types'
+import { IOrgDetails, IProfile } from '../../lib/common/types'
 
 async function GET(request: Request): Promise<IOrgDetails> {
   const requester: IProfile = await authenticateClientAppRequest(request)

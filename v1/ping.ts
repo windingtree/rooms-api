@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler } from '../_lib/interface'
+import { genericApiMethodHandler } from '../lib/interface'
 
 async function GET(): Promise<string> {
   return 'OK'

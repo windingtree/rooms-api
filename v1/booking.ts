@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
 
-import { genericApiMethodHandler, authorizeRequest } from '../_lib/interface'
-import { postBookingPayloadValidator } from '../_lib/interface/validators'
+import { genericApiMethodHandler, authorizeRequest } from '../lib/interface'
+import { postBookingPayloadValidator } from '../lib/interface/validators'
 
-import { authenticateClientAppRequest } from '../_lib/app/auth/client_app'
-import { createBooking } from '../_lib/app/booking'
+import { authenticateClientAppRequest } from '../lib/app/auth/client_app'
+import { createBooking } from '../lib/app/booking'
 
-import { IProfile, IBooking, IPostBookingPayload } from '../_lib/common/types'
+import { IProfile, IBooking, IPostBookingPayload } from '../lib/common/types'
 
 async function POST(request: Request): Promise<IBooking> {
   const requester: IProfile = await authenticateClientAppRequest(request)
